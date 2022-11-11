@@ -9,25 +9,25 @@ const dummy_meals = [
         id: 'm1',
         fooditem: 'Sushi',
         description: 'Finest fish and veggies',
-        amount: 22.99
+        price: 22.99
     },
     {
         id: 'm2',
         fooditem: 'Schnitzel',
         description: 'A german speciality!',
-        amount:16.50
+        price:16.50
     },
     {
         id: 'm3',
         fooditem: 'Barbecque Burger',
         description: 'American, raw, meaty',
-        amount: 12.99
+        price: 12.99
     },
     {
         id: 'm4',
         fooditem: 'Green Bowl',
         description: 'Healthy....green...',
-        amount:18.99
+        price:18.99
     },
   ];
 
@@ -37,7 +37,7 @@ const DummyMeal = (props) => {
             key = {meal.id}
             fooditem = {meal.fooditem}
             description = {meal.description}
-            amount = {meal.amount}
+            price = {meal.price}
        />
     ))
     return (
