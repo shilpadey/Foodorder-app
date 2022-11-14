@@ -1,5 +1,9 @@
 .cart-items {
-    list-style: none;
+    list-style-position: inside;
+    justify-content: space-between;
+    display: flexbox;
+    align-items: center;
+    font-weight: bold;
     margin: 0;
     padding: 0;
     max-height: 20rem;

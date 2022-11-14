@@ -34,6 +34,7 @@ const dummy_meals = [
 const DummyMeal = (props) => {
     const mealsList = dummy_meals.map((meal) => (
        <MealItem 
+            id = {meal.id}
             key = {meal.id}
             fooditem = {meal.fooditem}
             description = {meal.description}
