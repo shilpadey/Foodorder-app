@@ -6,11 +6,36 @@ const CartProvider = (props) => {
     const [items, updateItems] = useState([])
 
     const addItemToCartHandler = (item) => {
-       updateItems([...items, item]);
-        console.log(cartContext);
+       let itemsPresent = false;
+       const newItemArray = [...items];
+       newItemArray.forEach((element,index) => {
+        if(item.id === element.id){
+            itemsPresent = true;
+            newItemArray[index].quantity = Number(item.quantity) + Number(newItemArray[index].quantity);
+        }
+       })
+       if(itemsPresent === false){
+        updateItems([...items,item])
+       }else{
+        updateItems(newItemArray);
+       }
     };
 
-    const removeItemFromCartHandler = (id) => {};
+    const removeItemFromCartHandler = (id) => {
+        let hasItem = false;
+        const newItemArray = [...items];
+        newItemArray.forEach((element,index) => {
+            if((id === element.id) && element.quantity === 1){
+                hasItem = true;
+                const temp = newItemArray.splice(index,1);
+                updateItems(temp);
+            }else if(id === element.id){
+                hasItem = true;
+                newItemArray[index].quantity = Number(newItemArray[index].quantity) - 1;
+            }
+        });
+        hasItem === false ? updateItems([...items]) : updateItems(newItemArray);
+    };
 
 
     const cartContext = {
